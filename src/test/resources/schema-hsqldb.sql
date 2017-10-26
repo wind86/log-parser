@@ -1,0 +1,19 @@
+DROP TABLE log_item IF EXISTS;
+DROP TABLE banned_ips IF EXISTS;
+
+CREATE TABLE log_item  (
+    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
+    job_id BIGINT NOT NULL,
+    ip VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    request VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL,
+    user_agent VARCHAR(255)
+);
+
+CREATE TABLE banned_ips(
+    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
+    job_id BIGINT NOT NULL,
+    ip VARCHAR(20) NOT NULL,
+    reason VARCHAR(200) NOT NULL
+);
